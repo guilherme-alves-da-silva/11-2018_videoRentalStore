@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2e498a26-b4c1-45d2-87e1-9c28bc48f9eb">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="sqlite"/>
+	<queryString language="SQL">
+		<![CDATA[select * from tb_rental]]>
+	</queryString>
+	<field name="ren_id" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_date_begin" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_date_begin"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_date_end_predicted" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_date_end_predicted"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_date_end" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_date_end"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_active" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_active"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_amount_of_movies" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_amount_of_movies"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_amount_of_days_predicted" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_amount_of_days_predicted"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_amount_of_days" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_amount_of_days"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_total_price_predicted" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_total_price_predicted"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_total_price" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_total_price"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<field name="ren_tb_client_id" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="ren_tb_client_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_rental"/>
+	</field>
+	<variable name="ren_total_price1" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{ren_total_price}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="99" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="30" width="268" height="20" uuid="35905896-aadf-4004-a3e8-b307b5fae813"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Empréstimos Realizados no Dia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="60" width="186" height="19" uuid="7eabd767-f992-42bc-82bb-a11ee6815db2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ABC Locações de Filmes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="80" width="70" height="19" uuid="c949da05-b563-4645-b5b3-5a224d97aa6d"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="80" width="106" height="18" uuid="6a2dedcb-9cf7-453c-b95a-e9c032eadc46"/>
+				<text><![CDATA[Quantidade de Filmes]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="96" width="550" height="1" uuid="6b0ec7f8-ddcc-491b-a353-c2d1815e46b6"/>
+			</line>
+			<line>
+				<reportElement x="0" y="79" width="550" height="1" uuid="22608ee4-e212-4d6d-9418-3cba636c0468"/>
+			</line>
+			<staticText>
+				<reportElement x="250" y="82" width="139" height="15" uuid="e6251849-3884-417b-8812-3359883e7ccc"/>
+				<text><![CDATA[Quantidade de Dias]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="78" width="80" height="14" uuid="5e1ba13f-11d8-40b0-b82f-7c4656bfa7cd"/>
+				<text><![CDATA[Valor Total]]></text>
+			</staticText>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="452" y="60" width="100" height="18" uuid="446a3ee3-0972-4edf-8196-aa862020bf2b"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="457" y="40" width="25" height="15" uuid="05c2508b-8f88-4648-9780-43075f5235a2"/>
+				<text><![CDATA[Pag.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="482" y="40" width="70" height="19" uuid="ba6728c7-bfc7-4b43-8fec-9ee07d4e5928"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="-1" width="78" height="30" uuid="9333ac9b-9f3a-4077-9aee-5e58511cac95"/>
+				<textFieldExpression><![CDATA[$F{ren_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="110" height="30" uuid="935f33d3-836a-4fba-a069-93ad7c567b61"/>
+				<textFieldExpression><![CDATA[$F{ren_amount_of_movies}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="130" height="30" uuid="7b598944-5d9d-46b4-a96b-93058c2f2234"/>
+				<textFieldExpression><![CDATA[$F{ren_amount_of_days}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="140" height="30" uuid="6907afbd-df41-4084-b2a7-90f3254fe29d"/>
+				<textFieldExpression><![CDATA["R$" + $F{ren_total_price}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="0" width="550" height="1" uuid="efc7f6d4-ccc3-4ec9-9089-939ade13809f"/>
+			</line>
+			<staticText>
+				<reportElement x="290" y="0" width="160" height="14" uuid="cbd488c0-b532-4644-8b3d-12a5747a166e"/>
+				<text><![CDATA[Quantidade Total de Empréstimos:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="457" y="1" width="94" height="19" uuid="520d07d6-75d8-4fff-921a-3f46d522903f"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="14" width="550" height="1" uuid="73642d1a-5775-40cc-b22b-23b8771db253"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

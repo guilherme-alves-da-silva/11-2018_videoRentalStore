@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ceb2c6a8-bb9b-469d-89b3-7e829f508924">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="dGJfbW92aWUgLDE1LDE1LDEzNDA1ZDdmLTRjYzctNDVhYi1iZDJkLTQzN2JjMzYwY2ViMzs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT *
+FROM tb_movie
+WHERE 
+	mov_damaged = 1]]>
+	</queryString>
+	<field name="mov_id" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="mov_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_movie"/>
+	</field>
+	<field name="mov_name" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="mov_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_movie"/>
+	</field>
+	<field name="mov_year_of_release" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="mov_year_of_release"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_movie"/>
+	</field>
+	<field name="mov_kind_of_media" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="mov_kind_of_media"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_movie"/>
+	</field>
+	<field name="mov_active" class="java.lang.Object">
+		<property name="com.jaspersoft.studio.field.label" value="mov_active"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tb_movie"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="159" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="30" width="268" height="20" uuid="5f73e880-65c0-4b55-acc8-87dcb4caee6c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório de Empréstimos não Devolvidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="60" width="186" height="19" uuid="4929c1f2-9059-42c8-884b-fe26ec516981"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[ABC Locações de Filmes]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="40" width="25" height="15" uuid="3dc4c08a-898b-4644-9058-6a9508ce6016"/>
+				<text><![CDATA[Pag.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="482" y="40" width="70" height="19" uuid="307366ac-f535-4db5-8ca8-bd98e3d9030b"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="452" y="60" width="100" height="18" uuid="545b0951-0cdd-40df-9a1f-2a26b9f4a47c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="80" width="70" height="19" uuid="6dda35cc-c48b-4849-a512-5b81bbb3eb4f"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="80" width="84" height="18" uuid="1cc9ec7d-c40a-42d3-abf2-ba20fcb205e2"/>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="80" width="100" height="15" uuid="8904210a-eb59-41c1-b458-49ca11099c20"/>
+				<text><![CDATA[Data de Devolução]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="79" width="550" height="1" uuid="b473fdba-11f0-4b7f-b362-e8670374f8df"/>
+			</line>
+			<line>
+				<reportElement x="0" y="96" width="550" height="1" uuid="07d78e2e-5da9-4634-85c7-750d49527243"/>
+			</line>
+			<staticText>
+				<reportElement x="393" y="80" width="64" height="14" uuid="b3ddc77d-f67d-4a6f-a572-bf364ab2476c"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="80" width="83" height="18" uuid="91e14dc2-1ad7-4b70-b3c5-09b691b56367"/>
+				<text><![CDATA[Valor com Multa]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="140" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="372" y="0" width="80" height="14" uuid="c73e2c41-6d96-4305-81e5-5695b7941dad"/>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="0" width="550" height="1" uuid="dce8354a-9029-46a9-a01d-cc2179fecedc"/>
+			</line>
+			<line>
+				<reportElement x="2" y="14" width="550" height="1" uuid="f3f3748c-c267-4258-bf10-f15bc03dc39e"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

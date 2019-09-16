@@ -1,0 +1,142 @@
+create table tb_user_type( --mostly for scalability, current system will only use 2 types
+	use_typ_id integer primary key autoincrement,
+	use_typ_description not null,
+	use_typ_notes string,
+	use_typ_active integer not null default 1
+);
+create table tb_login(
+	log_id integer primary key autoincrement,
+	log_login string unique not null,
+	log_password string not null,
+	log_notes string,
+	log_active integer not null default 1,
+	log_tb_user_type_id integer not null,
+	foreign key(log_tb_user_type_id) references tb_user_type(use_typ_id) on update cascade
+);
+create table tb_state(
+	sta_id integer primary key autoincrement,
+	sta_name string not null,
+	sta_notes string,
+	sta_active integer not null default 1
+);
+create table tb_city(
+	cit_id integer primary key autoincrement,
+	cit_name string not null,
+	cit_notes string,
+	cit_active integer not null default 1,
+	cit_tb_state_id integer not null,
+	foreign key(cit_tb_state_id) references tb_state(sta_id) on update cascade
+);
+create table tb_address(
+	add_id integer primary key autoincrement,
+	add_street_name string,
+	add_house_number string,
+	add_type_of_residence string,
+	add_neighborhood string,
+	add_tb_city_id integer not null,
+	add_tb_client_id integer not null,
+	foreign key(add_tb_city_id) references tb_city(cit_id) on update cascade,
+	foreign key(add_tb_client_id) references tb_client(cli_id) on update cascade
+);
+create table tb_phone_number(
+	pho_num_id integer primary key autoincrement,
+	pho_num_phone_number string not null,
+	pho_num_tb_client_id integer not null,
+	foreign key(pho_num_tb_client_id) references tb_client(cli_id) on update cascade
+);
+create table tb_email(
+	ema_id integer primary key autoincrement,
+	ema_email string not null,
+	ema_tb_client_id integer not null,
+	foreign key(ema_tb_client_id) references tb_client(cli_id) on update cascade
+);
+create table tb_client(
+	cli_id integer primary key autoincrement,
+	cli_first_name string not null,
+	cli_last_name string,
+	cli_cpf string not null,
+	cli_date_of_birth integer not null,
+	cli_date_of_admission integer not null,
+	cli_active integer not null default 1,
+	cli_notes string,
+	cli_debt integer not null default 0,
+	cli_total_amount_of_movies_rented integer not null default 0
+);
+create table tb_rental( --movies to be returned in different days, make different rentals
+	ren_id integer primary key autoincrement,
+	ren_date_begin integer not null,
+	ren_date_end_predicted integer not null,
+	ren_date_end integer, --actual date of return, it may have been a late return
+	ren_active integer not null default 1, --while all the movies have not been returned yet, this remains active
+	ren_amount_of_movies integer not null default 1,
+	ren_amount_of_days_predicted integer not null,
+	ren_amount_of_days integer, --total amount, it may be have been a late return
+	ren_total_price_predicted integer not null,
+	ren_total_price integer, --total price, it may have been a late return so it will have the fines included
+	ren_tb_client_id integer not null,
+	foreign key(ren_tb_client_id) references tb_client(cli_id) on update cascade
+);
+create table tb_price_category(
+	pri_cat_id integer primary key autoincrement,
+	pri_cat_description string not null unique,
+	pri_cat_notes string,
+	pri_cat_amount_of_movies_using integer not null default 0,
+	pri_cat_active integer not null default 1,
+	pri_cat_fine_price integer not null default 0, --value / 100 --in case of late return
+	pri_cat_multiply_by integer not null default 1 --value / 100 --each day in case of late return
+);
+create table tb_price(
+	pri_id integer primary key autoincrement,
+	pri_amount_of_days integer not null,
+	pri_price integer not null, --value / 100
+	pri_tb_price_category_id integer not null,
+	foreign key(pri_tb_price_category_id) references tb_price_category(pri_cat_id) on update cascade
+);
+create table tb_movie(
+	mov_id integer primary key autoincrement,
+	mov_name string not null,
+	mov_year_of_release string,
+	mov_date_of_acquisition integer,
+	mov_description string,
+	mov_available integer not null default 1, --if it's available for rent or not
+	mov_notes string,
+	mov_kind_of_media string not null default 'dvd',
+	mov_damaged integer not null default 0,
+	mov_active integer not null default 1,
+	mov_tb_price_category_id integer not null,
+	foreign key(mov_tb_price_category_id) references tb_price_category(pri_cat_id) on update cascade
+);
+create table tb_rental_movie(
+	ren_mov_tb_rental_id integer not null,
+	ren_mov_tb_movie_id integer not null,
+	foreign key(ren_mov_tb_rental_id) references tb_rental(ren_id) on update cascade,
+	foreign key(ren_mov_tb_movie_id) references tb_movie(mov_id) on update cascade,
+	primary key(ren_mov_tb_rental_id, ren_mov_tb_movie_id)
+);
+create table tb_movie_category(
+	mov_cat_id integer primary key autoincrement,
+	mov_cat_description string not null unique,
+	mov_cat_notes string,
+	mov_cat_active integer not null default 1
+);
+create table tb_movie_category_movie(
+	mov_cat_mov_tb_movie_id integer not null,
+	mov_cat_mov_tb_movie_category_id integer not null,
+	foreign key(mov_cat_mov_tb_movie_id) references tb_movie(mov_id) on update cascade,
+	foreign key(mov_cat_mov_tb_movie_category_id) references tb_movie_category(mov_cat_id) on update cascade,
+	primary key(mov_cat_mov_tb_movie_id, mov_cat_mov_tb_movie_category_id)
+);
+create table tb_payment_form(
+	pay_for_id integer primary key autoincrement,
+	pay_for_description string not null unique,
+	pay_for_notes string,
+	pay_for_active integer not null default 1
+);
+create table tb_rental_payment_form(
+	ren_pay_for_tb_rental_id integer not null,
+	ren_pay_for_tb_payment_form_id integer not null,
+	foreign key(ren_pay_for_tb_rental_id) references tb_rental(ren_id) on update cascade,
+	foreign key(ren_pay_for_tb_payment_form_id) references tb_payment_form(pay_for_id) on update cascade,
+	primary key(ren_pay_for_tb_rental_id, ren_pay_for_tb_payment_form_id)
+);
+

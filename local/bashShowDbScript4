@@ -1,0 +1,39 @@
+export tableSeparator="\n############################################################################"
+export fieldSeparator="----------------------------------------------------------------------------"
+
+echo "tb_user_type" && python3 runSql.py designedDb.db "pragma table_info(tb_user_type)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_user_type" && echo -e $tableSeparator &&
+
+echo -e "tb_login" && python3 runSql.py designedDb.db "pragma table_info(tb_login)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_login" && echo -e $tableSeparator &&
+
+echo -e "tb_state" && python3 runSql.py designedDb.db "pragma table_info(tb_state)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_state" && echo -e $tableSeparator &&
+
+echo -e "tb_city" && python3 runSql.py designedDb.db "pragma table_info(tb_city)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_city" && echo -e $tableSeparator &&
+
+echo -e "tb_address" && python3 runSql.py designedDb.db "pragma table_info(tb_address)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_address" && echo -e $tableSeparator &&
+
+echo -e "tb_phone_number" && python3 runSql.py designedDb.db "pragma table_info(tb_phone_number)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_phone_number" && echo -e $tableSeparator &&
+
+echo -e "tb_email" && python3 runSql.py designedDb.db "pragma table_info(tb_email)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_email" && echo -e $tableSeparator &&
+
+echo -e "tb_client" && python3 runSql.py designedDb.db "pragma table_info(tb_client)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_client" && echo -e $tableSeparator &&
+
+echo -e "tb_rental" && python3 runSql.py designedDb.db "pragma table_info(tb_rental)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_rental" && echo -e $tableSeparator &&
+
+echo -e "tb_price_category" && python3 runSql.py designedDb.db "pragma table_info(tb_price_category)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_price_category" && echo -e $tableSeparator &&
+
+echo -e "tb_price" && python3 runSql.py designedDb.db "pragma table_info(tb_price)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_price" && echo -e $tableSeparator &&
+
+echo -e "tb_movie" && python3 runSql.py designedDb.db "pragma table_info(tb_movie)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_movie" && echo -e $tableSeparator &&
+
+echo -e "tb_rental_movie" && python3 runSql.py designedDb.db "pragma table_info(tb_rental_movie)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_rental_movie" && echo -e $tableSeparator &&
+
+echo -e "tb_movie_category" && python3 runSql.py designedDb.db "pragma table_info(tb_movie_category)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_movie_category" && echo -e $tableSeparator &&
+
+echo -e "tb_movie_category_movie" && python3 runSql.py designedDb.db "pragma table_info(tb_movie_category_movie)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_movie_category_movie" && echo -e $tableSeparator &&
+
+echo -e "tb_payment_form" && python3 runSql.py designedDb.db "pragma table_info(tb_payment_form)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_payment_form" && echo -e $tableSeparator &&
+
+echo -e "tb_rental_payment_form" && python3 runSql.py designedDb.db "pragma table_info(tb_rental_payment_form)" && echo -e $fieldSeparator && python3 runSql.py designedDb.db "select * from tb_rental_payment_form"
+
+#testing on dbDesign8
+
