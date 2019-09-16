@@ -1,0 +1,21 @@
+pragma foreign_keys = ON;
+
+--insert into tb_state(sta_name) values('state1');
+--insert into tb_city(cit_name, cit_tb_state_id) values('city1', 1);
+
+insert into tb_client(cli_first_name, cli_cpf, cli_date_of_birth, cli_date_of_admission) values('name1', 'cpf1', 1111, 1440198000000);
+
+insert into tb_address(add_neighborhood, add_tb_city_id, add_tb_client_id) values('neighborhood1', 1, 1);
+
+
+--testing on dbDesign9
+
+insert into tb_user_type(use_typ_description) values('standard');
+insert into tb_login(log_login, log_password, log_tb_user_type_id) values('standard', 'standard', 1);
+
+insert into tb_user_type(use_typ_description) values('admin');
+insert into tb_login(log_login, log_password, log_tb_user_type_id) values('admin', 'admin', 2);
+
+
+insert into tb_price_category(pri_cat_description) values('cheap');
+insert into tb_movie(mov_name, mov_tb_price_category_id) values('movName1', 1);
